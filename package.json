@@ -38,12 +38,6 @@
       },
       "dev": {
         "cache": false
-      },
-      "test": {
-        "outputs": [],
-        "dependsOn": [
-          "build"
-        ]
       }
     }
   },
