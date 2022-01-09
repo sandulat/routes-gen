@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
+  "repository": {
+    "url": "https://github.com/sandulat/routes-gen"
+  },
   "workspaces": [
     "packages/*"
   ],
