@@ -1,42 +1,57 @@
 {
-  "name": "turborepo-basic-shared",
+  "name": "routes-gen-monorepo",
   "version": "0.0.0",
   "private": true,
+  "license": "MIT",
   "workspaces": [
-    "apps/*",
     "packages/*"
   ],
   "scripts": {
     "build": "turbo run build",
+    "test": "turbo run test",
     "dev": "turbo run dev --parallel",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx}\""
   },
   "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "@types/node": "^17.0.7",
+    "esbuild": "^0.14.10",
+    "jest": "^27.4.5",
     "prettier": "^2.5.1",
-    "turbo": "latest"
+    "rollup": "^2.63.0",
+    "rollup-plugin-dts": "^4.1.0",
+    "rollup-plugin-esbuild": "^4.8.2",
+    "ts-jest": "^27.1.2",
+    "turbo": "latest",
+    "typescript": "^4.5.4"
   },
   "turbo": {
+    "baseBranch": "origin/main",
     "pipeline": {
       "build": {
         "dependsOn": [
           "^build"
         ],
         "outputs": [
-          "dist/**",
-          ".next/**"
+          "dist/**"
         ]
-      },
-      "lint": {
-        "outputs": []
       },
       "dev": {
         "cache": false
+      },
+      "test": {
+        "outputs": [],
+        "dependsOn": [
+          "build"
+        ]
       }
     }
   },
   "engines": {
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.19.0"
   }
 }

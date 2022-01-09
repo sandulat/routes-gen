@@ -1,0 +1,26 @@
+{
+  "name": "@routes-gen/remix",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c --watch",
+    "test": "jest"
+  },
+  "files": [
+    "dist/**",
+    "package.json",
+    "README.md"
+  ],
+  "dependencies": {
+    "routes-gen": "*"
+  },
+  "devDependencies": {
+    "config": "*"
+  },
+  "peerDependencies": {
+    "remix": "^1.0.0"
+  }
+}
