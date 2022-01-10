@@ -1,5 +1,11 @@
 # routes-gen
 
+## 0.2.1
+
+### Patch Changes
+
+- Moved all dependencies of routes-gen to dev.
+
 ## 0.2.0
 
 ### Minor Changes

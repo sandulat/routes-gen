@@ -6,8 +6,10 @@ Routes Generator is a CLI tool that parses and exports your routes into a Typesc
 
 First, you have to install the routes generator itself:
 ```
-yarn add -D routes-gen
+yarn add routes-gen
 ```
+
+> Note that it should not be a dev dependency, since you'll be importing the `route` method from here.
 
 The generator works with "drivers", which are route parsers for different frameworks.
 

@@ -1,6 +1,6 @@
 {
   "name": "routes-gen",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
@@ -21,13 +21,11 @@
   "bin": {
     "routes-gen": "dist/cli.js"
   },
-  "dependencies": {
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "config": "*",
     "chalk": "^4.1.2",
     "fs-extra": "^10.0.0",
     "meow": "^9.0.0"
-  },
-  "devDependencies": {
-    "@types/fs-extra": "^9.0.13",
-    "config": "*"
   }
 }
