@@ -8,7 +8,7 @@ export interface RemixRoute {
 }
 
 export const defaultOutputPath: Driver["defaultOutputPath"] =
-  "app/generated/routes.ts";
+  "app/routes.d.ts";
 
 export const routes: Driver["routes"] = async () =>
   new Promise<Route[]>((resolve) => {

@@ -3,25 +3,22 @@ const esbuild = require("rollup-plugin-esbuild").default;
 const defineConfig = require("rollup").defineConfig;
 
 module.exports = function (options) {
-  const { banner, ...optionsRest } = options;
-
   return defineConfig([
     {
-      ...optionsRest,
+      ...options,
       plugins: [esbuild()],
       output: [
         {
           file: `dist/index.js`,
           format: "cjs",
           sourcemap: true,
-          banner,
         },
       ],
       preserveEntrySignatures: true,
       external: (id) => !/^[./]/.test(id),
     },
     {
-      ...optionsRest,
+      ...options,
       plugins: [dts()],
       output: {
         file: `dist/index.d.ts`,

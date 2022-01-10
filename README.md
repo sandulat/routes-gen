@@ -15,7 +15,7 @@ The generator works with "drivers", which are route parsers for different framew
 
 | Driver                                      | Installation                    | Default export path        |
 |---------------------------------------------|---------------------------------|----------------------------|
-| [Remix](https://github.com/remix-run/remix) | `yarn add -D @routes-gen/remix` | `/app/generated/routes.ts` |
+| [Remix](https://github.com/remix-run/remix) | `yarn add -D @routes-gen/remix` | `/app/routes.d.ts` |
 
 ## Usage Example
 
@@ -26,7 +26,7 @@ yarn routes-gen -d @routes-gen/remix
 
 It will parse and export the routes, based on the driver that you've provided.
 
-For example, the `@routes-gen/remix` driver will export the routes by default to `/app/generated/routes.ts`.
+For example, the `@routes-gen/remix` driver will export the routes by default to `/app/routes.d.ts`.
 
 > Note that you can change the output path via the `--output` or `-o` flag.
 

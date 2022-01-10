@@ -14,4 +14,4 @@ yarn add -D routes-gen @routes-gen/remix
 routes-gen -d @routes-gen/remix
 ```
 
-By default, it exports the routes to: `/app/generated/routes.ts`.
+By default, it exports the routes to: `/app/routes.d.ts`.
