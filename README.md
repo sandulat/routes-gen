@@ -32,19 +32,14 @@ For example, the `@routes-gen/remix` driver will export the routes by default to
 
 Now you can import the generated `route` helper anywhere and enjoy the typings:
 ```ts
-import { route } from "~/generated/routes";
+import { route } from "routes-gen";
 
 // Compiles to /products
-route({
-    path: "/products",
-});
+route("/products");
 
 // Compiles to /products/1337
-route({
-    path: "/products/:productId",
-    params: {
-        productId: "1337",
-    },
+route("/products/:productId", {
+    productId: "1337",
 });
 ```
 
@@ -64,7 +59,7 @@ If there is no driver for your preferred framework, you can write your own. For 
 ```js
 module.exports = {
     // Where to export the file if the "output" flag was not provided
-    defaultOutputPath: "src/generated/routes.ts",
+    defaultOutputPath: "src/routes.d.ts",
     
     // The routes parser. Must export and array of routes matching the interface: { path: string }
     routes: async () => {
