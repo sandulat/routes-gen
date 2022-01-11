@@ -1,5 +1,11 @@
 # routes-gen
 
+## 0.2.5
+
+### Patch Changes
+
+- Implemented publishing script which replaces the monorepo dependencies with real versions and removes local private dependencies.
+
 ## 0.2.4
 
 ### Patch Changes

@@ -15,14 +15,13 @@
     "dev": "turbo run dev --parallel",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "push": "pre-push && changeset publish && post-push",
-    "release": "yarn prepack && changeset publish && yarn postpublish",
-    "prepack": "cp README.md packages/routes-gen",
-    "postpublish": "rimraf packages/routes-gen/README.MD"
+    "release": "node scripts/publish.js"
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",
     "@types/node": "^17.0.7",
     "esbuild": "^0.14.10",
+    "fs-extra": "^10.0.0",
     "jest": "^27.4.5",
     "prettier": "^2.5.1",
     "rollup": "^2.63.0",
