@@ -1,6 +1,18 @@
-# Routes Generator
+<p align="center">
+    <a href="https://github.com/sandulat/routes-gen" target="_blank">
+        <img src="https://raw.githubusercontent.com/sandulat/routes-gen/blob/main/assets/routes-gen.png" width="250px" />
+    </a>
+</p>
+<p align="center">
+<a href="https://github.com/sandulat/routes-gen/blob/main/LICENSE.md"><img src="https://img.shields.io/npm/v/routes-gen?color=%23AD1CB0&label=routes-gen" alt="Lincense"></a>
+<a href="https://github.com/sandulat/routes-gen/blob/main/LICENSE.md"><img src="https://img.shields.io/npm/v/@routes-gen/remix?color=%23AD1CB0&label=@routes-gen/remix" alt="Lincense"></a>
+<a href="https://github.com/sandulat/routes-gen/blob/main/LICENSE.md"><img src="https://img.shields.io/github/license/sandulat/routes-gen?color=%23AD1CB0" alt="Lincense"></a>
+<a href="https://twitter.com/sandulat"><img src="https://img.shields.io/twitter/follow/sandulat?label=Twitter" alt="Lincense"></a>
+</p>
 
-Routes Generator is a CLI tool that parses and exports your routes into a Typescript helper file, to help keep your code in sync with your routes and provide you typings. Think of it as [Prisma](https://github.com/prisma/prisma), but for routes.
+## About
+
+`routes-gen` is a framework agnostic CLI tool for routes parsing and generation of a type-safe helper for safe route usage. Think of it as [Prisma](https://github.com/prisma/prisma), but for routes.
 
 ## Installation
 
@@ -11,9 +23,9 @@ yarn add routes-gen
 
 > Note that it should not be a dev dependency, since you'll be importing the `route` method from here.
 
-The generator works with "drivers", which are route parsers for different frameworks.
-
 ## Official Drivers
+
+The generator works with "drivers", which are route parsers for different frameworks.
 
 | Driver                                      | Installation                    | Default export path        |
 |---------------------------------------------|---------------------------------|----------------------------|

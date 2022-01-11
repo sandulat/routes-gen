@@ -5,13 +5,14 @@ This is package is a **routes-gen** driver for [Remix](https://github.com/remix-
 ## Installation
 
 ```
-yarn add -D routes-gen @routes-gen/remix
+yarn add routes-gen
+yarn add -d @routes-gen/remix
 ```
 
 ## Usage
 
 ```
-routes-gen -d @routes-gen/remix
+yarn routes-gen -d @routes-gen/remix
 ```
 
 By default, it exports the routes to: `/app/routes.d.ts`.

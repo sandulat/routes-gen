@@ -13,7 +13,10 @@
     "build": "turbo run build",
     "test": "turbo run test",
     "dev": "turbo run dev --parallel",
-    "format": "prettier --write \"**/*.{ts,tsx}\""
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "push": "pre-push && changeset publish && post-push",
+    "prepack": "cp README.md packages/routes-gen",
+    "postpublish": "rimraf packages/routes-gen/README.MD"
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",

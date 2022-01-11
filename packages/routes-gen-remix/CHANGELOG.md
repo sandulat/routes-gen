@@ -1,5 +1,13 @@
 # @routes-gen/remix
 
+## 0.2.2
+
+### Patch Changes
+
+- Added project logo to README. Move main README to routes-gen on publish. Updated Remix driver README.
+- Updated dependencies
+  - routes-gen@0.2.2
+
 ## 0.2.1
 
 ### Patch Changes
