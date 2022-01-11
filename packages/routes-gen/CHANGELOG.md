@@ -1,5 +1,11 @@
 # routes-gen
 
+## 0.2.4
+
+### Patch Changes
+
+- Fixed README links
+
 ## 0.2.3
 
 ### Patch Changes

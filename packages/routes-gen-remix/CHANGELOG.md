@@ -1,5 +1,13 @@
 # @routes-gen/remix
 
+## 0.2.4
+
+### Patch Changes
+
+- Fixed README links
+- Updated dependencies
+  - routes-gen@0.2.4
+
 ## 0.2.3
 
 ### Patch Changes

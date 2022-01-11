@@ -4,10 +4,10 @@
     </a>
 </p>
 <p align="center">
-<a href="https://github.com/sandulat/routes-gen/blob/main/LICENSE.md"><img src="https://img.shields.io/npm/v/routes-gen?color=%23AD1CB0&label=routes-gen" alt="Lincense"></a>
-<a href="https://github.com/sandulat/routes-gen/blob/main/LICENSE.md"><img src="https://img.shields.io/npm/v/@routes-gen/remix?color=%23AD1CB0&label=@routes-gen/remix" alt="Lincense"></a>
-<a href="https://github.com/sandulat/routes-gen/blob/main/LICENSE.md"><img src="https://img.shields.io/github/license/sandulat/routes-gen?color=%23AD1CB0" alt="Lincense"></a>
-<a href="https://twitter.com/sandulat"><img src="https://img.shields.io/twitter/follow/sandulat?label=Twitter" alt="Lincense"></a>
+<a href="https://www.npmjs.com/package/routes-gen"><img src="https://img.shields.io/npm/v/routes-gen?color=%23AD1CB0&label=routes-gen" alt="routes-gen"></a>
+<a href="https://www.npmjs.com/package/@routes-gen/remix"><img src="https://img.shields.io/npm/v/@routes-gen/remix?color=%23AD1CB0&label=@routes-gen/remix" alt="@routes-gen/remix"></a>
+<a href="https://github.com/sandulat/routes-gen/blob/main/LICENSE.md"><img src="https://img.shields.io/github/license/sandulat/routes-gen?color=%23AD1CB0" alt="License"></a>
+<a href="https://twitter.com/sandulat"><img src="https://img.shields.io/twitter/follow/sandulat?label=Twitter" alt="Twitter"></a>
 </p>
 
 ## About
