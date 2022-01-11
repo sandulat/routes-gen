@@ -1,5 +1,13 @@
 # @routes-gen/remix
 
+## 0.2.3
+
+### Patch Changes
+
+- Fixed build script
+- Updated dependencies
+  - routes-gen@0.2.3
+
 ## 0.2.2
 
 ### Patch Changes

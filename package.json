@@ -15,6 +15,7 @@
     "dev": "turbo run dev --parallel",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "push": "pre-push && changeset publish && post-push",
+    "release": "yarn prepack && changeset publish && yarn postpublish",
     "prepack": "cp README.md packages/routes-gen",
     "postpublish": "rimraf packages/routes-gen/README.MD"
   },

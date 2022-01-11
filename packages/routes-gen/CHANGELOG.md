@@ -1,5 +1,11 @@
 # routes-gen
 
+## 0.2.3
+
+### Patch Changes
+
+- Fixed build script
+
 ## 0.2.2
 
 ### Patch Changes
