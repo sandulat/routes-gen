@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://github.com/sandulat/routes-gen" target="_blank">
-        <img src="https://raw.githubusercontent.com/sandulat/routes-gen/blob/main/assets/routes-gen.png" width="250px" />
+        <img src="https://raw.githubusercontent.com/sandulat/routes-gen/main/assets/routes-gen.png" width="250px" />
     </a>
 </p>
 <p align="center">
