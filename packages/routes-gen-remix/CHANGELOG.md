@@ -1,5 +1,11 @@
 # @routes-gen/remix
 
+## 0.2.6
+
+### Patch Changes
+
+- Fixed the route parser to exclude catch-all routes.
+
 ## 0.2.5
 
 ### Patch Changes

@@ -7,8 +7,7 @@ export interface RemixRoute {
   children: RemixRoute[];
 }
 
-export const defaultOutputPath: Driver["defaultOutputPath"] =
-  "app/routes.d.ts";
+export const defaultOutputPath: Driver["defaultOutputPath"] = "app/routes.d.ts";
 
 export const routes: Driver["routes"] = async () =>
   new Promise<Route[]>((resolve) => {
@@ -39,7 +38,7 @@ export const routes: Driver["routes"] = async () =>
             ];
           })
           .flat()
-          .filter((item) => Boolean(item.path) && item.path !== "/*");
+          .filter((item) => Boolean(item.path) && !item.path.includes("/*"));
 
       resolve(parseRoutes(JSON.parse(output)));
     });
