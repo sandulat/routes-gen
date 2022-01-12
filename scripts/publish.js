@@ -42,7 +42,7 @@ fs.writeJSONSync(
     ),
     dependencies: {
       ...remixDriverJson.dependencies,
-      "routes-gen": `${routesGenJson.version}`,
+      "routes-gen": `^${routesGenJson.version}`,
     },
   },
   { spaces: 2 }

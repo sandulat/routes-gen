@@ -1,5 +1,11 @@
 # @routes-gen/remix
 
+## 0.2.7
+
+### Patch Changes
+
+- Fixed publish script to include upper versions of monorepo dependencies
+
 ## 0.2.6
 
 ### Patch Changes
