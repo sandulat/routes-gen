@@ -22,15 +22,7 @@ export const routes: Driver["routes"] = async () =>
       ): Route[] =>
         routes
           .map((item) => {
-            if (item.index) {
-              return [
-                {
-                  path: "/",
-                },
-              ];
-            }
-
-            const path = `${parentPath ?? ""}${item.path}`;
+            const path = `${parentPath ?? ""}${item.path ?? ""}`;
 
             return [
               { path },
