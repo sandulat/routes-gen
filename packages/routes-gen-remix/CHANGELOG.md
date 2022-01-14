@@ -1,5 +1,11 @@
 # @routes-gen/remix
 
+## 0.2.9
+
+### Patch Changes
+
+- Fixed Remix pathless layout routes parsing
+
 ## 0.2.8
 
 ### Patch Changes

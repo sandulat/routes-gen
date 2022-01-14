@@ -25,11 +25,22 @@ export const routes: Driver["routes"] = async () =>
             const path = `${parentPath ?? ""}${item.path ?? ""}`;
 
             return [
-              { path },
+              {
+                path: (path.endsWith("/") && path !== "/"
+                  ? path.slice(0, -1)
+                  : path
+                ).replace(/\/\//g, "/"),
+              },
               ...(item.children ? parseRoutes(item.children, `${path}/`) : []),
             ];
           })
           .flat()
+          .filter(
+            (route, index, routes) =>
+              routes.findIndex(
+                (comparedRoute) => comparedRoute.path === route.path
+              ) === index
+          )
           .filter((item) => Boolean(item.path) && !item.path.includes("/*"));
 
       resolve(parseRoutes(JSON.parse(output)));
