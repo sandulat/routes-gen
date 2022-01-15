@@ -1,5 +1,11 @@
 # routes-gen
 
+## 0.3.0
+
+### Minor Changes
+
+- Implemented RouteParams type generation with all route parameters being exposed for external usage.
+
 ## 0.2.5
 
 ### Patch Changes

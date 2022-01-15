@@ -3,6 +3,14 @@ import fs from "fs-extra";
 import { Route } from "./types";
 import { logSuccess } from "./utils";
 
+const extractPathParams = (path: Route["path"]) =>
+  path.includes("/:")
+    ? path
+        .split("/")
+        .filter((item) => item.includes(":"))
+        .map((item) => `${item.split(".")[0].substring(1)}`)
+    : [];
+
 export const exportRoutes = ({
   routes,
   path,
@@ -12,20 +20,31 @@ export const exportRoutes = ({
 }) => {
   const routeGenericTemplate = routes
     .map((route) => {
-      const params = route.path.includes("/:")
-        ? route.path
-            .split("/")
-            .filter((item) => item.includes(":"))
-            .map((item) => `${item.split(".")[0].substring(1)}: string`)
-        : undefined;
+      const params = extractPathParams(route.path);
 
       return `      | ["${route.path}"${
-        params ? `, { ${params.join(",")} }` : ""
+        params.length > 0 ? `, RouteParams["${route.path}"]` : ""
       }]`;
     })
     .join("\n");
 
+  const routeParamsTypeTemplate = routes
+    .map((route) => {
+      const params = extractPathParams(route.path);
+
+      return `    "${route.path}": ${
+        params.length > 0
+          ? `{ ${params.map((path) => `${path}: string`).join(", ")} }`
+          : "{}"
+      };`;
+    })
+    .join("\n");
+
   const output = `declare module "routes-gen" {
+  export type RouteParams = {
+${routeParamsTypeTemplate}
+  };
+
   export function route<
     T extends
 ${routeGenericTemplate}

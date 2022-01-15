@@ -57,6 +57,31 @@ route("/products/:productId", {
 });
 ```
 
+## Params Types Usage
+You can use the `RouteParams` type to add typings to your dynamic route parameters/segments. Example:
+
+```ts
+import { RouteParams } from "routes-gen";
+
+const { productId } = params as RouteParams["/products/:productId"];
+```
+
+**Remix** example:
+```ts
+import { LoaderFunction, useParams } from "remix";
+import { RouteParams } from "routes-gen";
+
+export const loader: LoaderFunction = async ({ params }) => {
+  const { productId } = params as RouteParams["/products/:productId"];
+};
+
+export default function Product() {
+  const { productId } = useParams<RouteParams["/products/:productId"]>();
+
+  return <div />;
+}
+```
+
 ## CLI Options
 
 | Option    | Alias | Description                           |
