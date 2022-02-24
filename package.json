@@ -52,6 +52,6 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "@changesets/cli": "^2.19.0"
+    "@changesets/cli": "^2.21.0"
   }
 }
