@@ -62,7 +62,7 @@ const bootstrap = async () => {
   let driver: Driver | undefined = undefined;
 
   try {
-    driver = await import(`${process.cwd()}/node_modules/${cli.flags.driver}`);
+    driver = await import(require.resolve(cli.flags.driver!));
   } catch {}
 
   if (!driver) {
