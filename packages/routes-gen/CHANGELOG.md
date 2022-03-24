@@ -1,5 +1,11 @@
 # routes-gen
 
+## 0.3.1
+
+### Patch Changes
+
+- Use require.resolve for importing drivers.
+
 ## 0.3.0
 
 ### Minor Changes
