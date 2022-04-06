@@ -1,5 +1,11 @@
 # routes-gen
 
+## 0.3.2
+
+### Patch Changes
+
+- Fixed dash delimiters in routes generation.
+
 ## 0.3.1
 
 ### Patch Changes

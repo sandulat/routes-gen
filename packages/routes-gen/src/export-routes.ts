@@ -8,7 +8,7 @@ const extractPathParams = (path: Route["path"]) =>
     ? path
         .split("/")
         .filter((item) => item.includes(":"))
-        .map((item) => `${item.split(".")[0].substring(1)}`)
+        .map((item) => item.split(".")[0].split("-")[0].substring(1))
     : [];
 
 export const exportRoutes = ({
@@ -34,7 +34,7 @@ export const exportRoutes = ({
 
       return `    "${route.path}": ${
         params.length > 0
-          ? `{ ${params.map((path) => `${path}: string`).join(", ")} }`
+          ? `{ ${params.map((path) => `"${path}": string`).join(", ")} }`
           : "{}"
       };`;
     })
