@@ -21,7 +21,7 @@
   "bin": {
     "routes-gen": "dist/cli.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "@types/fs-extra": "^9.0.13",
     "config": "*",
     "chalk": "^4.1.2",
