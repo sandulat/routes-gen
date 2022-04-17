@@ -21,15 +21,13 @@ First, you have to install the routes generator itself:
 yarn add routes-gen
 ```
 
-> Note that it should not be a dev dependency, since you'll be importing the `route` method from here.
-
 ## Official Drivers
 
 The generator works with "drivers", which are route parsers for different frameworks.
 
-| Driver                                      | Installation                    | Default export path        |
-|---------------------------------------------|---------------------------------|----------------------------|
-| [Remix](https://github.com/remix-run/remix) | `yarn add -D @routes-gen/remix` | `/app/routes.d.ts` |
+| Driver                                      | Installation                    |
+|---------------------------------------------|---------------------------------|
+| [Remix](https://github.com/remix-run/remix) | `yarn add @routes-gen/remix` |
 
 ## Usage Example
 
@@ -90,6 +88,7 @@ export default function Product() {
 | --version | -v    | Print the CLI version and exit        |
 | --output  | -o    | The path for routes export            |
 | --driver  | -d    | The driver of handling routes parsing |
+| --watch   | -w    | Watch for changes                     |
 
 ## Writing Your Driver
 
@@ -97,19 +96,24 @@ If there is no driver for your preferred framework, you can write your own. For 
 
 ```js
 module.exports = {
-    // Where to export the file if the "output" flag was not provided
+    // Where to export the typings if the "output" flag was not provided.
     defaultOutputPath: "src/routes.d.ts",
     
-    // The routes parser. Must export and array of routes matching the interface: { path: string }
+    // The routes parser. Must export and array of routes matching the { path: string } interface.
     routes: async () => {
         return [
             {
                 path: "/products",
             },
             {
-                path: "/products/:productId", // Note that the dynamic segments must match the pattern :myVar
+                path: "/products/:productId", // Note that the dynamic segments must match the :myVar pattern.
             },
         ];
+    },
+
+    // The paths to be watched for changes. Must return and array of relative paths.
+    watchPaths: async () => {
+        return ["/my-routes"];
     },
 }
 ```
@@ -120,7 +124,7 @@ Now you can easily use it:
 routes-gen -d driver.js
 ```
 
-You can also publish it to npm, and use it as a package:
+You can also publish it to npm, install it, and use it as a package:
 
 ```
 routes-gen -d my-driver-package

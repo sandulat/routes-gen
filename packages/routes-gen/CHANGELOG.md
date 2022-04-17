@@ -1,5 +1,11 @@
 # routes-gen
 
+## 0.4.0
+
+### Minor Changes
+
+- Implemented routes changes watcher.
+
 ## 0.3.3
 
 ### Patch Changes

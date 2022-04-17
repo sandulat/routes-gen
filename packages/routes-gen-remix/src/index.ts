@@ -1,5 +1,14 @@
 import { exec } from "child_process";
 import type { Driver, Route } from "routes-gen";
+import * as path from "path";
+
+const remixConfigPath = "remix.config.js";
+
+const remixConfig = require(path.resolve(process.cwd(), remixConfigPath)) as {
+  appDirectory?: string;
+};
+
+const appDirectory = remixConfig.appDirectory ?? "./app";
 
 export interface RemixRoute {
   path: string;
@@ -7,11 +16,16 @@ export interface RemixRoute {
   children: RemixRoute[];
 }
 
-export const defaultOutputPath: Driver["defaultOutputPath"] = "app/routes.d.ts";
+export const defaultOutputPath: Driver["defaultOutputPath"] = `${appDirectory}/routes.d.ts`;
+
+export const watchPaths: Driver["watchPaths"] = async () => [
+  `${appDirectory}/routes/**/*.{ts,tsx,js,jsx}`,
+  remixConfigPath,
+];
 
 export const routes: Driver["routes"] = async () =>
   new Promise<Route[]>((resolve) => {
-    exec("remix routes --json", (error, output) => {
+    exec("remix routes --json", async (error, output) => {
       if (error) {
         throw error;
       }

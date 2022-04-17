@@ -1,5 +1,16 @@
 # @routes-gen/remix
 
+## 0.3.0
+
+### Minor Changes
+
+- Implemented routes changes watcher.
+
+### Patch Changes
+
+- Updated dependencies
+  - routes-gen@0.4.0
+
 ## 0.2.10
 
 ### Patch Changes

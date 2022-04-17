@@ -1,5 +1,6 @@
 import chalk from "chalk";
 import fs from "fs-extra";
+import * as path from "path";
 import { Route } from "./types";
 import { logSuccess } from "./utils";
 
@@ -13,10 +14,10 @@ const extractPathParams = (path: Route["path"]) =>
 
 export const exportRoutes = ({
   routes,
-  path,
+  outputPath,
 }: {
   routes: Route[];
-  path: string;
+  outputPath: string;
 }) => {
   const routeGenericTemplate = routes
     .map((route) => {
@@ -52,7 +53,9 @@ ${routeGenericTemplate}
 }
 `;
 
-  fs.outputFileSync(`${process.cwd()}/${path}`, output);
+  fs.outputFileSync(path.resolve(process.cwd(), outputPath), output);
 
-  logSuccess(`Exported ${routes.length} routes to "${chalk.underline(path)}".`);
+  logSuccess(
+    `Exported ${routes.length} routes to "${chalk.underline(outputPath)}".`
+  );
 };

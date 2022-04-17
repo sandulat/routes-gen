@@ -1,7 +1,9 @@
+import chokidar from "chokidar";
 import meow from "meow";
-import { logError } from "./utils";
+import * as path from "path";
 import { exportRoutes } from "./export-routes";
 import { Driver } from "./types";
+import { logError, logInfo } from "./utils";
 
 const drivers = ["@routes-gen/remix"];
 
@@ -18,6 +20,7 @@ Options
   --version, -v          Print the CLI version and exit
   --output, -o           The path for routes export
   --driver, -d           The driver of handling routes parsing
+  --watch, -w            Watch for changes
 
 Official Drivers
   ${driversHelpText}
@@ -39,6 +42,10 @@ const cli = meow(helpText, {
       type: "string",
       alias: "d",
     },
+    watch: {
+      type: "boolean",
+      alias: "w",
+    },
   },
 });
 
@@ -53,9 +60,24 @@ if (!cli.flags.driver) {
 }
 
 const markAsFailed = (message: string) => {
-  process.exitCode = 1;
-
   logError(message);
+
+  process.exit(1);
+};
+
+const getRoutes = async (driver: Driver) => {
+  const routes = await driver.routes();
+
+  if (
+    !Array.isArray(routes) ||
+    routes.some((route) => !route.path || typeof route.path !== "string")
+  ) {
+    return markAsFailed(
+      `The routes returned by the "routes" option are invalid.`
+    );
+  }
+
+  return routes;
 };
 
 const bootstrap = async () => {
@@ -97,18 +119,53 @@ const bootstrap = async () => {
     );
   }
 
-  const routes = await driver.routes();
+  const outputPath = cli.flags.output ?? driver.defaultOutputPath;
 
-  if (
-    !Array.isArray(routes) ||
-    routes.some((route) => !route.path || typeof route.path !== "string")
-  ) {
-    return markAsFailed(
-      `The routes returned by the "routes" option are invalid.`
-    );
+  exportRoutes({
+    routes: await getRoutes(driver),
+    outputPath,
+  });
+
+  if (cli.flags.watch) {
+    if (!driver.watchPaths) {
+      return markAsFailed(
+        `The "watchPaths" option is not exported by the driver.`
+      );
+    }
+
+    if (typeof driver.watchPaths !== "function") {
+      return markAsFailed(
+        `The "watchPaths" option exported by the driver is not a function.`
+      );
+    }
+
+    const pathsToBeWatched = await driver.watchPaths();
+
+    if (
+      !Array.isArray(pathsToBeWatched) ||
+      pathsToBeWatched.some((item) => typeof item !== "string")
+    ) {
+      return markAsFailed(
+        `The "watchPaths" option must return an array of strings.`
+      );
+    }
+
+    logInfo("Watching for routes changes.");
+
+    chokidar
+      .watch(
+        pathsToBeWatched.map((item) => path.resolve(process.cwd(), item)),
+        {
+          ignoreInitial: true,
+        }
+      )
+      .on("all", async () =>
+        exportRoutes({
+          routes: await getRoutes(driver!),
+          outputPath,
+        })
+      );
   }
-
-  exportRoutes({ routes, path: cli.flags.output ?? driver.defaultOutputPath });
 };
 
 bootstrap();
