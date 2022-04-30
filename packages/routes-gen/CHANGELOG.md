@@ -1,5 +1,11 @@
 # routes-gen
 
+## 0.5.0
+
+### Minor Changes
+
+- Implemented post-export hook.
+
 ## 0.4.0
 
 ### Minor Changes

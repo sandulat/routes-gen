@@ -82,13 +82,14 @@ export default function Product() {
 
 ## CLI Options
 
-| Option    | Alias | Description                           |
-|-----------|-------|---------------------------------------|
-| --help    |       | Print the help message and exit       |
-| --version | -v    | Print the CLI version and exit        |
-| --output  | -o    | The path for routes export            |
-| --driver  | -d    | The driver of handling routes parsing |
-| --watch   | -w    | Watch for changes                     |
+| Option          | Alias | Description                           |
+|-----------------|-------|---------------------------------------|
+| --help          |       | Print the help message and exit       |
+| --version       | -v    | Print the CLI version and exit        |
+| --output        | -o    | The path for routes export            |
+| --driver        | -d    | The driver of handling routes parsing |
+| --watch         | -w    | Watch for changes                     |
+| --post-export   |       | Execute a command after routes export |
 
 ## Writing Your Driver
 
@@ -113,7 +114,7 @@ module.exports = {
 
     // The paths to be watched for changes. Must return and array of relative paths.
     watchPaths: async () => {
-        return ["/my-routes"];
+        return ["/my-routes/**/*.{ts,tsx,js,jsx}"];
     },
 }
 ```

@@ -1,3 +1,4 @@
+import { execSync } from "child_process";
 import chokidar from "chokidar";
 import meow from "meow";
 import * as path from "path";
@@ -21,6 +22,7 @@ Options
   --output, -o           The path for routes export
   --driver, -d           The driver of handling routes parsing
   --watch, -w            Watch for changes
+  --post-export          Execute a command after routes export
 
 Official Drivers
   ${driversHelpText}
@@ -46,6 +48,9 @@ const cli = meow(helpText, {
       type: "boolean",
       alias: "w",
     },
+    postExport: {
+      type: "string",
+    },
   },
 });
 
@@ -63,6 +68,18 @@ const markAsFailed = (message: string) => {
   logError(message);
 
   process.exit(1);
+};
+
+const processRoutes: typeof exportRoutes = (...args) => {
+  const result = exportRoutes(...args);
+
+  if (typeof cli.flags.postExport === "undefined") {
+    return;
+  }
+
+  execSync(cli.flags.postExport, { stdio: "inherit" });
+
+  return result;
 };
 
 const getRoutes = async (driver: Driver) => {
@@ -121,7 +138,7 @@ const bootstrap = async () => {
 
   const outputPath = cli.flags.output ?? driver.defaultOutputPath;
 
-  exportRoutes({
+  processRoutes({
     routes: await getRoutes(driver),
     outputPath,
   });
@@ -160,7 +177,7 @@ const bootstrap = async () => {
         }
       )
       .on("all", async () =>
-        exportRoutes({
+        processRoutes({
           routes: await getRoutes(driver!),
           outputPath,
         })
