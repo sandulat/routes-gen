@@ -1,5 +1,11 @@
 # routes-gen
 
+## 0.5.1
+
+### Patch Changes
+
+- Changed the empty object type {} to use TS Record utility type.
+
 ## 0.5.0
 
 ### Minor Changes
