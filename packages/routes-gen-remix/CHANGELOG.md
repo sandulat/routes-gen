@@ -1,5 +1,11 @@
 # @routes-gen/remix
 
+## 0.3.1
+
+### Patch Changes
+
+- Changed remix driver peer dependency.
+
 ## 0.3.0
 
 ### Minor Changes
