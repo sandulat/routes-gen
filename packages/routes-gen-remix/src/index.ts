@@ -43,7 +43,7 @@ export const routes: Driver["routes"] = async () =>
                 path: (path.endsWith("/") && path !== "/"
                   ? path.slice(0, -1)
                   : path
-                ).replace(/\/\//g, "/"),
+                ).replace(/\/\/+/g, '/'),
               },
               ...(item.children ? parseRoutes(item.children, `${path}/`) : []),
             ];
