@@ -6,15 +6,9 @@ import { exportRoutes } from "./export-routes";
 import { Driver } from "./types";
 import { logError, logInfo } from "./utils";
 
-const drivers = ["@routes-gen/remix"];
-
-const driversHelpText = drivers.map(
-  (driver) => `${driver}      Installation: yarn add ${driver}\n`
-);
-
 const helpText = `
 Usage
-  $ routes-gen build
+  $ routes-gen -d [driver]
 
 Options
   --help                 Print this help message and exit
@@ -25,7 +19,7 @@ Options
   --post-export          Execute a command after routes export
 
 Official Drivers
-  ${driversHelpText}
+  @routes-gen/remix      Remix driver
 `;
 
 const cli = meow(helpText, {

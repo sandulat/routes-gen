@@ -1,5 +1,11 @@
 # routes-gen
 
+## 0.5.2
+
+### Patch Changes
+
+- Updated cli help message.
+
 ## 0.5.1
 
 ### Patch Changes
