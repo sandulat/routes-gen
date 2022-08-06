@@ -1,5 +1,11 @@
 # @routes-gen/remix
 
+## 0.3.3
+
+### Patch Changes
+
+- Fixed "remix routes" cli output truncation.
+
 ## 0.3.2
 
 ### Patch Changes

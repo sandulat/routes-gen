@@ -25,7 +25,7 @@ export const watchPaths: Driver["watchPaths"] = async () => [
 
 export const routes: Driver["routes"] = async () =>
   new Promise<Route[]>((resolve) => {
-    exec("remix routes --json", async (error, output) => {
+    exec("remix routes --json | tee", async (error, output) => {
       if (error) {
         throw error;
       }
