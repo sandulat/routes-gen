@@ -1,5 +1,11 @@
 # @routes-gen/remix
 
+## 0.3.4
+
+### Patch Changes
+
+- Replaced "exec" with programatic Remix CLI usage.
+
 ## 0.3.3
 
 ### Patch Changes

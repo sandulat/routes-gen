@@ -13,12 +13,10 @@ const remixDriverJson = fs.readJSONSync(remixDriverJsonPath);
 
 const configJson = fs.readJSONSync("packages/config/package.json");
 
-const localDevDependencies = [configJson.name];
-
-const filterLocalDevDependencies = (devDependencies) =>
-  Object.keys(devDependencies).reduce((result, dependency) => {
-    if (!localDevDependencies.includes(dependency)) {
-      result[dependency] = devDependencies[dependency];
+const removeDependencies = (sourceDependencies, removeDependencies) =>
+  Object.keys(sourceDependencies).reduce((result, dependency) => {
+    if (!removeDependencies.includes(dependency)) {
+      result[dependency] = sourceDependencies[dependency];
     }
 
     return result;
@@ -28,7 +26,9 @@ fs.writeJSONSync(
   routesGenJsonPath,
   {
     ...routesGenJson,
-    devDependencies: filterLocalDevDependencies(routesGenJson.devDependencies),
+    devDependencies: removeDependencies(routesGenJson.devDependencies, [
+      configJson.name,
+    ]),
   },
   { spaces: 2 }
 );
@@ -37,9 +37,10 @@ fs.writeJSONSync(
   remixDriverJsonPath,
   {
     ...remixDriverJson,
-    devDependencies: filterLocalDevDependencies(
-      remixDriverJson.devDependencies
-    ),
+    devDependencies: removeDependencies(remixDriverJson.devDependencies, [
+      configJson.name,
+      "@remix-run/dev",
+    ]),
     dependencies: {
       ...remixDriverJson.dependencies,
       "routes-gen": `^${routesGenJson.version}`,
