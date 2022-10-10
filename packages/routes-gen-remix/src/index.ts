@@ -51,10 +51,10 @@ const parseRoutes = (
     .filter((item) => Boolean(item.path) && !item.path.includes("/*"));
 
 export const routes: Driver["routes"] = async () => {
-  const parsedRoutes = await new Promise<Route[]>(async (resolve) => {
-    // TODO: Get rid of this approach when Remix exposes routes publicly.
-    const originalConsoleLog = console.log;
+  // TODO: Get rid of this approach when Remix exposes routes publicly.
+  const originalConsoleLog = console.log;
 
+  const parsedRoutes = await new Promise<Route[]>(async (resolve) => {
     console.log = (stdout) => {
       try {
         const parsedRoutes = JSON.parse(stdout);
@@ -74,9 +74,9 @@ export const routes: Driver["routes"] = async () => {
     };
 
     await cli.run(["routes", "--json"]);
-
-    console.log = originalConsoleLog;
   });
+
+  console.log = originalConsoleLog;
 
   if (parsedRoutes.length === 0) {
     throw new Error(

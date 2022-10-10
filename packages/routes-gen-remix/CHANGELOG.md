@@ -1,5 +1,11 @@
 # @routes-gen/remix
 
+## 0.3.5
+
+### Patch Changes
+
+- Fixed bringing back the original console log after parsing Remix routes.
+
 ## 0.3.4
 
 ### Patch Changes
