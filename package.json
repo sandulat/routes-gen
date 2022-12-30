@@ -14,7 +14,6 @@
     "test": "turbo run test",
     "dev": "turbo run dev --parallel",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
-    "postinstall": "patch-package",
     "push": "pre-push && changeset publish && post-push",
     "release": "node scripts/publish.js"
   },
@@ -24,8 +23,6 @@
     "esbuild": "^0.14.10",
     "fs-extra": "^10.0.0",
     "jest": "^27.4.5",
-    "patch-package": "^6.5.0",
-    "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.5.1",
     "rollup": "^2.63.0",
     "rollup-plugin-dts": "^4.1.0",

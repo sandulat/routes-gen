@@ -15,7 +15,7 @@ type SolidStartRouteData = {
   dataPath: string
 };
 export const routes: Driver["routes"] = async () => {
-  const scriptPath = path.join(__dirname, 'node_modules', 'solid-start', 'bin.cjs');
+  const scriptPath = path.join(__dirname, 'node_modules', '@nirtamir2/solid-start', 'bin.cjs');
   const parsedRoutes = await new Promise<Array<SolidStartRouteData>>(async (resolve) => {
     exec(`node ${scriptPath} routes`, (error, stdout, stderr) => {
       if (error != null) {

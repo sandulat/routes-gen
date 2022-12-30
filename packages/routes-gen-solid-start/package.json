@@ -1,5 +1,5 @@
 {
-  "name": "@routes-gen/solid-start",
+  "name": "@nirtamir2/routes-gen-solid-start",
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,14 +19,13 @@
     "README.md"
   ],
   "dependencies": {
-    "patch-package": "^6.5.0",
     "routes-gen": "*"
   },
   "devDependencies": {
     "config": "*",
-    "solid-start": "^0.2.9"
+    "@nirtamir2/solid-start": "^0.0.1"
   },
   "peerDependencies": {
-    "solid-start": "^0.2.9"
+    "@nirtamir2/solid-start": "^0.0.1"
   }
 }
