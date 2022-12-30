@@ -1,0 +1,37 @@
+{
+  "name": "@routes-gen/solid-start",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/sandulat/routes-gen",
+    "directory": "packages/routes-gen-solid-start"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c --watch",
+    "test": "jest",
+    "postinstall": "patch-package"
+  },
+  "files": [
+    "dist/**",
+    "package.json",
+    "README.md"
+  ],
+  "dependencies": {
+    "patch-package": "^6.5.0",
+    "postinstall-postinstall": "^2.1.0",
+    "routes-gen": "*",
+    "solid-start": "^0.2.9"
+  },
+  "devDependencies": {
+    "config": "*",
+    "patch-package": "^6.5.0",
+    "postinstall-postinstall": "^2.1.0",
+    "solid-start": "^0.2.9"
+  },
+  "peerDependencies": {
+    "solid-start": "^0.2.9"
+  }
+}
