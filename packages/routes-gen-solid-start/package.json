@@ -1,6 +1,6 @@
 {
   "name": "@nirtamir2/routes-gen-solid-start",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
@@ -24,8 +24,5 @@
   },
   "devDependencies": {
     "config": "*"
-  },
-  "peerDependencies": {
-    "@nirtamir2/solid-start": "^0.0.1"
   }
 }
