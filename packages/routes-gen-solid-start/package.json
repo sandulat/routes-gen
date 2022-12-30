@@ -19,11 +19,11 @@
     "README.md"
   ],
   "dependencies": {
+    "@nirtamir2/solid-start": "^0.0.1",
     "routes-gen": "*"
   },
   "devDependencies": {
-    "config": "*",
-    "@nirtamir2/solid-start": "^0.0.1"
+    "config": "*"
   },
   "peerDependencies": {
     "@nirtamir2/solid-start": "^0.0.1"
