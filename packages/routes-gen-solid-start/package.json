@@ -11,8 +11,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c --watch",
-    "test": "jest",
-    "postinstall": "patch-package"
+    "test": "jest"
   },
   "files": [
     "dist/**",
@@ -21,14 +20,10 @@
   ],
   "dependencies": {
     "patch-package": "^6.5.0",
-    "postinstall-postinstall": "^2.1.0",
-    "routes-gen": "*",
-    "solid-start": "^0.2.9"
+    "routes-gen": "*"
   },
   "devDependencies": {
     "config": "*",
-    "patch-package": "^6.5.0",
-    "postinstall-postinstall": "^2.1.0",
     "solid-start": "^0.2.9"
   },
   "peerDependencies": {
