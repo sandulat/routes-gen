@@ -1,4 +1,3 @@
-import path from "path";
 import {exec} from "child_process"
 import {Driver} from "routes-gen/src";
 
