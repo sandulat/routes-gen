@@ -19,7 +19,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@nirtamir2/solid-start": "^0.0.1",
+    "solid-start": "^0.2.10",
     "routes-gen": "*"
   },
   "devDependencies": {
