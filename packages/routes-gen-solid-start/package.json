@@ -1,6 +1,6 @@
 {
   "name": "@nirtamir2/routes-gen-solid-start",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
@@ -19,8 +19,8 @@
     "README.md"
   ],
   "dependencies": {
-    "solid-start": "^0.2.10",
-    "routes-gen": "*"
+    "routes-gen": "*",
+    "solid-start": "^0.2.10"
   },
   "devDependencies": {
     "config": "*"
