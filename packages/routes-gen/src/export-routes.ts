@@ -35,7 +35,7 @@ export const exportRoutes = ({
 
       return `    "${route.path}": ${
         params.length > 0
-          ? `{ ${params.map((path) => `"${path}": string`).join(", ")} }`
+        ? `{ ${params.map((path) => path.endsWith("?") ? `"${path.slice(0,-1)}"?: string` : `"${path}": string`).join(", ")} }`
           : "Record<string, never>"
       };`;
     })
