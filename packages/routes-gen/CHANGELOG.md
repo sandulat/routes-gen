@@ -1,5 +1,11 @@
 # routes-gen
 
+## 0.6.0
+
+### Minor Changes
+
+- Implemented optional params support.
+
 ## 0.5.2
 
 ### Patch Changes
