@@ -23,9 +23,17 @@ export const exportRoutes = ({
     .map((route) => {
       const params = extractPathParams(route.path);
 
+      const onlyOptionalParams =
+        params.length > 0 && params.every((param) => param.endsWith("?"));
+
       return `      | ["${route.path}"${
         params.length > 0 ? `, RouteParams["${route.path}"]` : ""
-      }]`;
+      }]${
+        onlyOptionalParams
+          ? `
+      | ["${route.path}"]`
+          : ""
+      }`;
     })
     .join("\n");
 
@@ -35,7 +43,13 @@ export const exportRoutes = ({
 
       return `    "${route.path}": ${
         params.length > 0
-          ? `{ ${params.map((path) => `"${path}": string`).join(", ")} }`
+          ? `{ ${params
+              .map((param) =>
+                param.endsWith("?")
+                  ? `"${param.slice(0, -1)}"?: string`
+                  : `"${param}": string`
+              )
+              .join(", ")} }`
           : "Record<string, never>"
       };`;
     })
