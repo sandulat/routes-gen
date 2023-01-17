@@ -24,5 +24,8 @@
   },
   "devDependencies": {
     "config": "*"
+  },
+  "peerDependencies": {
+    "solid-start": "^0.2.10"
   }
 }
