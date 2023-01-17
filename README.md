@@ -6,6 +6,7 @@
 <p align="center">
 <a href="https://www.npmjs.com/package/routes-gen"><img src="https://img.shields.io/npm/v/routes-gen?color=%236A3C8F&label=routes-gen" alt="routes-gen"></a>
 <a href="https://www.npmjs.com/package/@routes-gen/remix"><img src="https://img.shields.io/npm/v/@routes-gen/remix?color=%236A3C8F&label=@routes-gen/remix" alt="@routes-gen/remix"></a>
+<a href="https://www.npmjs.com/package/@routes-gen/solid-start"><img src="https://img.shields.io/npm/v/@routes-gen/solid-start?color=%236A3C8F&label=@routes-gen/solid-start" alt="@routes-gen/solid-start"></a>
 <a href="https://github.com/sandulat/routes-gen/blob/main/LICENSE.md"><img src="https://img.shields.io/github/license/sandulat/routes-gen?color=%236A3C8F" alt="License"></a>
 <a href="https://twitter.com/sandulat"><img src="https://img.shields.io/twitter/follow/sandulat?label=Twitter" alt="Twitter"></a>
 </p>
@@ -25,9 +26,10 @@ yarn add routes-gen
 
 The generator works with "drivers", which are route parsers for different frameworks.
 
-| Driver                                      | Installation                    |
-|---------------------------------------------|---------------------------------|
-| [Remix](https://github.com/remix-run/remix) | `yarn add @routes-gen/remix` |
+| Driver                                               | Installation                       |
+|------------------------------------------------------|------------------------------------|
+| [Remix](https://github.com/remix-run/remix)          | `yarn add @routes-gen/remix`       |
+| [SolidStart](https://github.com/solidjs/solid-start) | `yarn add @routes-gen/solid-start` |
 
 ## Usage Example
 
