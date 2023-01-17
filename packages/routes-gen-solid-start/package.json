@@ -1,6 +1,6 @@
 {
   "name": "@routes-gen/solid-start",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
@@ -19,11 +19,11 @@
     "README.md"
   ],
   "dependencies": {
-    "routes-gen": "*",
-    "solid-start": "^0.2.10"
+    "routes-gen": "*"
   },
   "devDependencies": {
-    "config": "*"
+    "config": "*",
+    "solid-start": "^0.2.10"
   },
   "peerDependencies": {
     "solid-start": "^0.2.10"
