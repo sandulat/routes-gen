@@ -11,7 +11,7 @@ yarn add routes-gen @routes-gen/solid-start
 ## Usage
 
 ```
-yarn routes-gen -d @routes-gen/solud-start
+yarn routes-gen -d @routes-gen/solid-start
 ```
 
 By default, it exports the routes to: `${appDirectory}/routes.d.ts`.
