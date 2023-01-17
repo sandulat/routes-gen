@@ -11,6 +11,9 @@ const routesGenJson = fs.readJSONSync(routesGenJsonPath);
 const remixDriverJsonPath = "packages/routes-gen-remix/package.json";
 const remixDriverJson = fs.readJSONSync(remixDriverJsonPath);
 
+const solidStartDriverJsonPath = "packages/routes-gen-solid-start/package.json";
+const solidStartDriverJson = fs.readJSONSync(solidStartDriverJsonPath);
+
 const configJson = fs.readJSONSync("packages/config/package.json");
 
 const removeDependencies = (sourceDependencies, removeDependencies) =>
@@ -49,10 +52,28 @@ fs.writeJSONSync(
   { spaces: 2 }
 );
 
+fs.writeJSONSync(
+  solidStartDriverJsonPath,
+  {
+    ...solidStartDriverJson,
+    devDependencies: removeDependencies(solidStartDriverJson.devDependencies, [
+      configJson.name,
+      "solid-start",
+    ]),
+    dependencies: {
+      ...solidStartDriverJson.dependencies,
+      "routes-gen": `^${routesGenJson.version}`,
+    },
+  },
+  { spaces: 2 }
+);
+
 execSync("yarn changeset publish");
 
 fs.writeJSONSync(routesGenJsonPath, routesGenJson, { spaces: 2 });
 
 fs.writeJSONSync(remixDriverJsonPath, remixDriverJson, { spaces: 2 });
+
+fs.writeJSONSync(solidStartDriverJsonPath, solidStartDriverJson, { spaces: 2 });
 
 execSync("rimraf packages/routes-gen/README.MD");

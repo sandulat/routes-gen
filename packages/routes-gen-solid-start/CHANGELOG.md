@@ -1,0 +1,1 @@
+# @routes-gen/solid-start
