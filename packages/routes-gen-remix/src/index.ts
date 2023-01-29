@@ -1,14 +1,54 @@
 import { cli } from "@remix-run/dev";
+import fs from "fs";
 import * as path from "path";
 import type { Driver, Route } from "routes-gen";
 
-const remixConfigPath = "remix.config.js";
+const remixConfigPath = "remix.config";
 
-const remixConfig = require(path.resolve(process.cwd(), remixConfigPath)) as {
-  appDirectory?: string;
+const remixConfigExts = ["js", "cjs", "mjs"] as const;
+
+const fallbackRemixConfig = {
+  appDirectory: "app",
 };
 
-const appDirectory = remixConfig.appDirectory ?? "./app";
+const loadRemixConfig = (configPath: string) => {
+  for (const ext of remixConfigExts) {
+    const fullPath = `${configPath}.${ext}`;
+
+    const file = path.resolve(process.cwd(), fullPath);
+
+    if (!fs.existsSync(file)) {
+      continue;
+    }
+
+    try {
+      return require(file) as {
+        appDirectory?: string;
+      };
+    } catch (e) {
+      if (ext === "mjs") {
+        console.warn(`The .mjs format is currently unsupported.`);
+      } else {
+        console.error(e);
+      }
+
+      console.warn(
+        `Failed to load the Remix config at "${fullPath}". Falling back to the following defaults: ${JSON.stringify(
+          fallbackRemixConfig
+        )}.`
+      );
+
+      return fallbackRemixConfig;
+    }
+  }
+
+  throw new Error("Error loading Remix config.");
+};
+
+const remixConfig = loadRemixConfig(remixConfigPath);
+
+const appDirectory =
+  remixConfig.appDirectory ?? fallbackRemixConfig.appDirectory;
 
 export interface RemixRoute {
   path: string;
@@ -20,7 +60,7 @@ export const defaultOutputPath: Driver["defaultOutputPath"] = `${appDirectory}/r
 
 export const watchPaths: Driver["watchPaths"] = async () => [
   `${appDirectory}/routes/**/*.{ts,tsx,js,jsx}`,
-  remixConfigPath,
+  `${remixConfigPath}.{${remixConfigExts.join(",")}}`,
 ];
 
 const parseRoutes = (
