@@ -12,6 +12,8 @@ const extractPathParams = (path: Route["path"]) =>
         .map((item) => item.split(".")[0].split("-")[0].substring(1))
     : [];
 
+const sortRoutes = (a: Route, b: Route) => a.path.localeCompare(b.path);
+
 export const exportRoutes = ({
   routes,
   outputPath,
@@ -20,6 +22,7 @@ export const exportRoutes = ({
   outputPath: string;
 }) => {
   const routeGenericTemplate = routes
+    .sort(sortRoutes)
     .map((route) => {
       const params = extractPathParams(route.path);
 
@@ -38,6 +41,7 @@ export const exportRoutes = ({
     .join("\n");
 
   const routeParamsTypeTemplate = routes
+    .sort(sortRoutes)
     .map((route) => {
       const params = extractPathParams(route.path);
 
