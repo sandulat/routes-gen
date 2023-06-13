@@ -6,7 +6,7 @@ export function route<T extends string>(
     return Object.entries(params)
       .reduce(
         (result, [key, value]) =>
-          result.replace(new RegExp(`:${key}\\??`, "g"), value),
+          result.replace(new RegExp(`:${key}\\??`), value),
         path as string
       )
       .replace(new RegExp("\\/:.+\\?", "g"), "") as T;
