@@ -1,5 +1,11 @@
 # routes-gen
 
+## 0.6.1
+
+### Patch Changes
+
+- Implemented routes export sorting and fixed routes params with same prefix computation
+
 ## 0.6.0
 
 ### Minor Changes
