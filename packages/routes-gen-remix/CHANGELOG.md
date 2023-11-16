@@ -1,5 +1,11 @@
 # @routes-gen/remix
 
+## 0.3.7
+
+### Patch Changes
+
+- Include Remix ^2.0.0 as peer dependency.
+
 ## 0.3.6
 
 ### Patch Changes
